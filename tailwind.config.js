@@ -1,0 +1,48 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
+        popover: "hsl(var(--popover))",
+        "popover-foreground": "hsl(var(--popover-foreground))",
+        primary: "hsl(var(--primary))",
+        "primary-foreground": "hsl(var(--primary-foreground))",
+        secondary: "hsl(var(--secondary))",
+        "secondary-foreground": "hsl(var(--secondary-foreground))",
+        muted: "hsl(var(--muted))",
+        "muted-foreground": "hsl(var(--muted-foreground))",
+        accent: "hsl(var(--accent))",
+        "accent-foreground": "hsl(var(--accent-foreground))",
+        destructive: "hsl(var(--destructive))",
+        "destructive-foreground": "hsl(var(--destructive-foreground))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+
+        // Primary color variations
+        "red-primary": "hsl(var(--red-primary))",
+        "red-secondary": "hsl(var(--red-secondary))",
+        "orange-primary": "hsl(var(--orange-primary))",
+        "orange-secondary": "hsl(var(--orange-secondary))",
+        "yellow-primary": "hsl(var(--yellow-primary))",
+        "yellow-secondary": "hsl(var(--yellow-secondary))",
+        "green-primary": "hsl(var(--green-primary))",
+        "green-secondary": "hsl(var(--green-secondary))",
+        "cyan-primary": "hsl(var(--cyan-primary))",
+        "cyan-secondary": "hsl(var(--cyan-secondary))",
+        "blue-primary": "hsl(var(--blue-primary))",
+        "blue-secondary": "hsl(var(--blue-secondary))",
+        "purple-primary": "hsl(var(--purple-primary))",
+        "purple-secondary": "hsl(var(--purple-secondary))",
+        "magenta-primary": "hsl(var(--magenta-primary))",
+        "magenta-secondary": "hsl(var(--magenta-secondary))",
+      },
+    },
+  },
+  plugins: ["prettier-plugin-tailwindcss"],
+};

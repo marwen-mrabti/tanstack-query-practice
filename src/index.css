@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* 1. Use a more-intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 5. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 6. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 7. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  /*
+  9. Create a root stacking context
+  */
+  #root {
+    isolation: isolate;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 35 54% 69%; /* #D6BB87 */
+    --foreground: 0 3% 10%; /* #1A1A1A */
+    --card: 35 54% 69%; /* #D6BB87 */
+    --card-foreground: 0 3% 10%; /* #1A1A1A */
+    --popover: 35 54% 69%; /* #D6BB87 */
+    --popover-foreground: 0 3% 10%; /* #1A1A1A */
+    --primary: 35 62% 45%; /* #A87D51 - Darker shade of background */
+    --primary-foreground: 0 3% 10%; /* #1A1A1A */
+    --secondary: 35 30% 89%; /* #F1E2C9 */
+    --secondary-foreground: 0 3% 10%; /* #1A1A1A */
+    --muted: 35 30% 89%; /* #F1E2C9 */
+    --muted-foreground: 35 25% 35%; /* #A87D51 */
+    --accent: 205 46% 70%; /* #73B1C1 */
+    --accent-foreground: 0 3% 10%; /* #1A1A1A */
+    --destructive: 3 62% 42%; /* #D9534F */
+    --destructive-foreground: 35 54% 69%; /* #D6BB87 */
+    --border: 35 15% 78%; /* #DBD2C5 */
+    --input: 35 15% 78%; /* #DBD2C5 */
+    --ring: 35 20% 64%; /* #B8A18D */
+    --radius: 0.5rem;
+
+    /* Color variations */
+    --red-primary: 3 62% 42%; /* #D9534F */
+    --red-secondary: 5 61% 54%; /* #E36460 */
+    --orange-primary: 25 66% 45%; /* #D78C42 */
+    --orange-secondary: 35 50% 67%; /* #D6A475 */
+    --yellow-primary: 45 99% 34%; /* #EBCB34 */
+    --yellow-secondary: 45 82% 45%; /* #F3E154 */
+    --green-primary: 73 84% 27%; /* #4FA352 */
+    --green-secondary: 72 46% 41%; /* #778D64 */
+    --cyan-primary: 175 57% 33%; /* #1A9D9F */
+    --cyan-secondary: 175 49% 45%; /* #32B3B4 */
+    --blue-primary: 205 46% 60%; /* #619DC3 */
+    --blue-secondary: 208 30% 70%; /* #A0BFD8 */
+    --purple-primary: 259 42% 43%; /* #6E4F9B */
+    --purple-secondary: 251 40% 64%; /* #AA7DBF */
+    --magenta-primary: 326 55% 41%; /* #CF3A77 */
+    --magenta-secondary: 329 54% 59%; /* #D3629B */
+  }
+
+  .dark {
+    --background: 0 3% 10%; /* #1A1A1A */
+    --foreground: 35 54% 69%; /* #D6BB87 */
+    --card: 0 3% 10%; /* #1A1A1A */
+    --card-foreground: 35 54% 69%; /* #D6BB87 */
+    --popover: 0 3% 10%; /* #1A1A1A */
+    --popover-foreground: 35 54% 69%; /* #D6BB87 */
+    --primary: 35 54% 69%; /* #D6BB87 */
+    --primary-foreground: 0 3% 10%; /* #1A1A1A */
+    --secondary: 35 20% 15%; /* #463730 */
+    --secondary-foreground: 35 54% 69%; /* #D6BB87 */
+    --muted: 35 20% 15%; /* #463730 */
+    --muted-foreground: 35 25% 35%; /* #A87D51 */
+    --accent: 205 46% 60%; /* #619DC3 */
+    --accent-foreground: 35 54% 69%; /* #D6BB87 */
+    --destructive: 3 62% 42%; /* #D9534F */
+    --destructive-foreground: 0 3% 10%; /* #1A1A1A */
+    --border: 35 20% 20%; /* #473E39 */
+    --input: 35 20% 20%; /* #473E39 */
+    --ring: 35 20% 35%; /* #7E6A5E */
+
+    /* Color variations */
+    --red-primary: 5 61% 54%; /* #E36460 */
+    --red-secondary: 3 62% 42%; /* #D9534F */
+    --orange-primary: 35 50% 67%; /* #D6A475 */
+    --orange-secondary: 25 66% 45%; /* #D78C42 */
+    --yellow-primary: 45 82% 45%; /* #F3E154 */
+    --yellow-secondary: 45 99% 34%; /* #EBCB34 */
+    --green-primary: 72 46% 41%; /* #778D64 */
+    --green-secondary: 73 84% 27%; /* #4FA352 */
+    --cyan-primary: 175 49% 45%; /* #32B3B4 */
+    --cyan-secondary: 175 57% 33%; /* #1A9D9F */
+    --blue-primary: 208 30% 70%; /* #A0BFD8 */
+    --blue-secondary: 205 46% 60%; /* #619DC3 */
+    --purple-primary: 251 40% 64%; /* #AA7DBF */
+    --purple-secondary: 259 42% 43%; /* #6E4F9B */
+    --magenta-primary: 329 54% 59%; /* #D3629B */
+    --magenta-secondary: 326 55% 41%; /* #CF3A77 */
+  }
+}
