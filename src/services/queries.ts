@@ -1,21 +1,59 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import {
+  keepPreviousData,
+  useInfiniteQuery,
+  useQuery,
+} from "@tanstack/react-query";
 
-const API_URL = import.meta.env.VITE_MOCK_API_URL;
-
-const axiosClient = axios.create({
-  baseURL: API_URL,
-});
+import { getInfiniteProducts, getProducts, getUsers } from "./api";
 
 export const useGetUsers = () => {
-  const { data, isLoading, error } = useQuery({
+  const {
+    data: users,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["users"],
-    queryFn: async () => {
-      const response = await axiosClient.get("/users");
-      return response.data;
-    },
+    queryFn: getUsers,
     refetchOnWindowFocus: true,
   });
 
-  return { data, isLoading, error };
+  return { users, isLoading, error };
+};
+
+// with pagination
+export const useGetProducts = ({ page }: { page: number }) => {
+  const {
+    data: products,
+    isLoading,
+    error,
+    isError,
+  } = useQuery({
+    queryKey: ["products", { page }],
+    queryFn: () => getProducts(page),
+    placeholderData: keepPreviousData,
+    refetchOnWindowFocus: true,
+    // initialData,
+  });
+  return { products, isLoading, error, isError };
+};
+
+// infinite queries
+export const useGetInfiniteProducts = () => {
+  return useInfiniteQuery({
+    queryKey: ["infinite-products"],
+    queryFn: getInfiniteProducts,
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, _, lastPageParam) => {
+      if (lastPage.length === 0) {
+        return undefined;
+      }
+      return lastPageParam + 1;
+    },
+    getPreviousPageParam: (_, __, firstPageParam) => {
+      if (firstPageParam <= 1) {
+        return undefined;
+      }
+      return firstPageParam - 1;
+    },
+  });
 };
